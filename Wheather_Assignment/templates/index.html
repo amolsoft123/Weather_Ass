@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Wheather Forecast</title>
+  </head>
+  <body>
+    
+    <!-- navbar -->
+  <!--
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">UK Wheather</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+      </div>     
+    </nav>
+    -->
+
+    <div class="alert alert-dark container  mt-3 " p=8 role="alert">
+      <div class="alert alert-light  text-lg"  role="alert">
+      <h1>UK Wheather Forecast Details</h1><h6>Download time-series of monthly, seasonal and annual values. Files can be downloaded in rank or year order. The regional series were updated in January 2020 to make use of the HadUK-Grid dataset at 1km resolution.</h6>
+    </div>
+
+    
+    <div class="alert alert-info container " p=8 role="alert">
+    <form method="post" action="{{ 'display_wheather' }}">
+      {% csrf_token %}
+        <div class="form-group mt-1">
+          <div class="input-group">
+          <div class="custom-control custom-radio"></div>
+
+          <div class="custom-control custom-radio">
+            <h3>Order</h3>
+            <hr>
+            <input type="radio" name="stat" class="custom-control-input" value="ranked">
+            <label class="custom-control-label" for="customRadio1"><h5>Rank ordered statistics </h5></label><h6>(monthly, seasonal and annual values)</h6>
+            <input type="radio" name="stat" class="custom-control-input" value="date">
+            <label class="custom-control-label" for="customRadio1"><h5>Year ordered statistics</h5></label><br><hr>
+          </div>
+        </div>
+        <div class="dropdown">
+              <label for="region"><h5>Region</h5></label>
+              <select id="region" name="region">
+                  <option value="">Choose a region</option>
+                  <option value="UK">UK</option>
+                  <option value="England">England</option>
+                  <option value="Wales">Wales</option>
+                  <option value="Scotland">Scotland</option>
+                  <option value="Northern_Ireland">Northern Ireland</option>
+                  <option value="England_and_Wales">England &amp; Wales</option>
+                  <option value="England_N">England N</option>
+                  <option value="England_S">England S</option>
+                  <option value="Scotland_N">Scotland N</option>
+                  <option value="Scotland_E">Scotland E</option>
+                  <option value="Scotland_W">Scotland W</option>
+                  <option value="England_E_and_NE">England E &amp; NE</option>
+                  <option value="England_NW_and_N_Wales">England NW/Wales N</option>
+                  <option value="Midlands">Midlands</option>
+                  <option value="East_Anglia">East Anglia</option>
+                  <option value="England_SW_and_S_Wales">England SW/Wales S</option>
+                  <option value="England_SE_and_Central_S">England SE/Central S</option>
+              </select>
+        </div><hr>
+      <div class="dropdown">
+              <label for="parameter"><h5>Parameter</h5></label>
+              <select id="parameter" name="parameter">
+                      <option value="">Choose a parameter</option>
+                      <option value="Tmax">Max temp</option>
+                      <option value="Tmin">Min temp</option>
+                      <option value="Tmean">Mean temp</option>
+                      <option value="Sunshine">Sunshine</option>
+                      <option value="Rainfall">Rainfall</option>
+                      <option value="Raindays1mm">Rain days ≥1.0mm</option>
+                      <option value="AirFrost">Days of air frost</option>
+              </select>
+      </div><br>
+        <button type="submit" class="btn btn-primary">Download</button>
+</form>
+  </div>
+</div>
+</div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
